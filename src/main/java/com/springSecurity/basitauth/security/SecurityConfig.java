@@ -36,7 +36,7 @@ public class SecurityConfig {
                                 .requestMatchers(mvcRequestBuilder.pattern("/public/**")).permitAll()
                                 .requestMatchers(mvcRequestBuilder.pattern("/private/admin/**")).hasRole(Role.ROLE_ADMIN.getValue())
                                 .requestMatchers(mvcRequestBuilder.pattern("/private/**")).authenticated()
-                                .requestMatchers(PathRequest.toH2Console()).hasRole("ADMIN")
+                                .requestMatchers(PathRequest.toH2Console()).hasRole(Role.ROLE_ADMIN.getValue())
                                 .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults())
